@@ -1,6 +1,11 @@
 package org.ericho.recipeappcmp.di
 
-import org.koin.dsl.module
+import org.ericho.recipeappcmp.data.BusRepository
+import org.ericho.recipeappcmp.data.BusRepositoryImpl
+import org.ericho.recipeappcmp.data.local.BusLocalDataSource
+import org.ericho.recipeappcmp.data.local.BusLocalDataSourceImpl
+import org.ericho.recipeappcmp.data.remote.BusRemoteDataSource
+import org.ericho.recipeappcmp.data.remote.BusRemoteDataSourceImpl
 import org.ericho.recipeappcmp.features.detail.data.datasources.RecipeDetailLocalDataSource
 import org.ericho.recipeappcmp.features.detail.data.datasources.RecipeDetailLocalDataSourceImpl
 import org.ericho.recipeappcmp.features.detail.data.datasources.RecipeDetailRemoteDataSource
@@ -23,8 +28,9 @@ import org.ericho.recipeappcmp.features.search.data.repositories.SearchRecipeRep
 import org.ericho.recipeappcmp.features.search.domain.repositories.SearchRecipeRepository
 import org.ericho.recipeappcmp.preferences.AppPreferences
 import org.ericho.recipeappcmp.preferences.AppPreferencesImpl
+import org.koin.dsl.module
 
-fun dataModule()  = module {
+fun dataModule() = module {
 
     single<AppPreferences> { AppPreferencesImpl(get()) }
 
@@ -42,4 +48,9 @@ fun dataModule()  = module {
 
     single<SearchRecipeLocalDataSource> { SearchRecipeLocalDataSourceImpl(get()) }
     single<SearchRecipeRepository> { SearchRecipeRepositoryImpl(get()) }
+
+    //Bus part
+    single<BusLocalDataSource> { BusLocalDataSourceImpl(get()) }
+    single<BusRemoteDataSource> { BusRemoteDataSourceImpl(get()) }
+    single<BusRepository> { BusRepositoryImpl(get(), get()) }
 }
