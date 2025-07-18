@@ -13,14 +13,14 @@ class BusRepositoryImpl(
 ) : BusRepository {
 
     override suspend fun getAllBusRoutes(): Result<List<RouteItem>> {
-        return remoteDataSource.getAllBusRoutes()
+        return remoteDataSource.getAllRoutes()
     }
 
     override suspend fun getBusRoute(
         route: String,
         direction: String,
         serviceType: String
-    ): Result<List<RouteItem>> {
+    ): Result<RouteItem> {
         return remoteDataSource.getBusRoute(route, direction, serviceType)
     }
 

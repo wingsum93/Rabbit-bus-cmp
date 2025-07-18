@@ -7,14 +7,14 @@ import org.ericho.recipeappcmp.domain.model.StopItem
 
 interface BusRemoteDataSource {
     // 路線列表數據
-    suspend fun getAllBusRoutes(): Result<List<RouteItem>>
+    suspend fun getAllRoutes(): Result<List<RouteItem>>
 
     // 路線數據
     suspend fun getBusRoute(
         route: String,
         direction: String,
         serviceType: String
-    ): Result<List<RouteItem>>
+    ): Result<RouteItem>
 
     // ----------------------------------------------
     // 巴士站列表數據

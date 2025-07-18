@@ -1,0 +1,13 @@
+{
+  "type": "Stop",
+  "version": "1.0",
+  "generated_timestamp": "2025-07-18T19:47:14+08:00",
+  "data": {
+    "stop": "F0AC02C6C94078C4",
+    "name_en": "WONG TAI SIN POLICE STATION (WT329)",
+    "name_tc": "黃大仙警署 (WT329)",
+    "name_sc": "黄大仙警署 (WT329)",
+    "lat": "22.339447",
+    "long": "114.197681"
+  }
+}

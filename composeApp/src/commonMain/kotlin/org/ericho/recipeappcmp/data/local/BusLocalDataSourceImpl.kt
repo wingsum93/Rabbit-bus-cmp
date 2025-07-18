@@ -1,6 +1,6 @@
 package org.ericho.recipeappcmp.data.local
 
-import org.ericho.recipeappcmp.domain.model.BusRouteItem
+import org.ericho.recipeappcmp.domain.model.RouteItem
 import org.ericho.recipeappcmp.domain.model.RouteStopItem
 import org.ericho.recipeappcmp.domain.model.StopItem
 import org.ericho.recipeappcmp.features.common.data.database.daos.RecipeDao
@@ -8,7 +8,7 @@ import org.ericho.recipeappcmp.features.common.data.database.daos.RecipeDao
 class BusLocalDataSourceImpl(
     private val dao: RecipeDao
 ) : BusLocalDataSource {
-    override suspend fun getAllBusRoutes(): List<BusRouteItem>? {
+    override suspend fun getAllBusRoutes(): List<RouteItem>? {
         TODO("Not yet implemented")
     }
 
@@ -16,7 +16,7 @@ class BusLocalDataSourceImpl(
         route: String,
         direction: String,
         serviceType: String
-    ): List<BusRouteItem>? {
+    ): List<RouteItem>? {
         TODO("Not yet implemented")
     }
 

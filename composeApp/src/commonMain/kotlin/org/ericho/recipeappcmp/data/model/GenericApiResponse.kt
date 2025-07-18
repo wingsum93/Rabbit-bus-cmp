@@ -1,7 +1,9 @@
 package org.ericho.recipeappcmp.data.model
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ApiResponse<T>(
     @SerialName("type")
     val type: String? = null,

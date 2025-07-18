@@ -1,7 +1,5 @@
-import org.gradle.declarative.dsl.schema.FqName.Empty.packageName
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
@@ -22,7 +20,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -33,9 +31,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm("desktop")
-    
+
 //    @OptIn(ExperimentalWasmDsl::class)
 //    wasmJs {
 //        moduleName = "composeApp"
@@ -57,7 +55,7 @@ kotlin {
 //    }
 
     js(IR) {
-        moduleName = "composeApp"
+        outputModuleName = "composeApp"
         browser {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
@@ -74,10 +72,10 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -149,6 +147,26 @@ kotlin {
             implementation(libs.web.worker.driver)
             implementation(devNpm("copy-webpack-plugin", "9.1.0"))
         }
+
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.koin.test)
+            implementation(libs.ktor.client.mock)
+            implementation(libs.mockk.common)
+
+            //Koin
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+        }
+
+        val desktopTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+                implementation(libs.mockk.jvm)
+            }
+        }
+
     }
 }
 

@@ -5,13 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RouteStopApiItem(
-    @SerialName("co")
-    val company: String, // e.g. "KMB"
-
     @SerialName("route")
     val route: String,   // e.g. "1A"
 
-    @SerialName("dir")
+    @SerialName("bound")
     val direction: String, // e.g. "O" (Outbound / Inbound)
 
     @SerialName("service_type")
@@ -22,7 +19,4 @@ data class RouteStopApiItem(
 
     @SerialName("stop")
     val stopId: String,  // Stop reference, e.g. "DCFF4041D0C0ACF8"
-
-    @SerialName("data_timestamp")
-    val dataTimestamp: String
 )

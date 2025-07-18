@@ -15,7 +15,7 @@ interface BusRepository {
         route: String,
         direction: String,
         serviceType: String
-    ): Result<List<RouteItem>>
+    ): Result<RouteItem>
 
     // ----------------------------------------------
     // 巴士站列表數據

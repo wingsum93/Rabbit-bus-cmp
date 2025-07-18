@@ -34,7 +34,7 @@ class BusRemoteDataSourceImpl(
     private val PATH_ETA_ROUTE = "route-eta/{route}/{serviceType}"
 
 
-    override suspend fun getAllBusRoutes(): Result<List<RouteItem>> {
+    override suspend fun getAllRoutes(): Result<List<RouteItem>> {
         return kotlin.runCatching {
             val c = safeApiCall {
                 httpClient.get(PATH_ALL_ROUTE).body<ApiResponse<List<RouteApiItem>>>()
@@ -47,15 +47,15 @@ class BusRemoteDataSourceImpl(
         route: String,
         direction: String,
         serviceType: String
-    ): Result<List<RouteItem>> {
+    ): Result<RouteItem> {
         return kotlin.runCatching {
             val url = PATH_ROUTE.replace("{route}", route)
                 .replace("{direction}", direction)
                 .replace("{serviceType}", serviceType)
             val c = safeApiCall {
-                httpClient.get(url).body<ApiResponse<List<RouteApiItem>>>()
+                httpClient.get(url).body<ApiResponse<RouteApiItem>>()
             }
-            c.map { it.toRouteItem() }
+            c.toRouteItem()
         }
     }
 
@@ -94,7 +94,7 @@ class BusRemoteDataSourceImpl(
     ): Result<RouteStopItem> {
         return kotlin.runCatching {
             val c = safeApiCall {
-                httpClient.get(PATH_ALL_ROUTE_STOP).body<ApiResponse<RouteStopApiItem>>()
+                httpClient.get(PATH_ROUTE_STOP).body<ApiResponse<RouteStopApiItem>>()
             }
             c.toRouteStopItem()
         }

@@ -1,19 +1,19 @@
 package org.ericho.recipeappcmp.data.local
 
-import org.ericho.recipeappcmp.domain.model.BusRouteItem
+import org.ericho.recipeappcmp.domain.model.RouteItem
 import org.ericho.recipeappcmp.domain.model.RouteStopItem
 import org.ericho.recipeappcmp.domain.model.StopItem
 
 interface BusLocalDataSource {
     // 路線列表數據
-    suspend fun getAllBusRoutes(): List<BusRouteItem>?
+    suspend fun getAllBusRoutes(): List<RouteItem>?
 
     // 路線數據
     suspend fun getBusRoute(
         route: String,
         direction: String,
         serviceType: String
-    ): List<BusRouteItem>?
+    ): List<RouteItem>?
 
     // ----------------------------------------------
     // 巴士站列表數據

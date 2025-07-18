@@ -1,0 +1,16 @@
+{
+  "type": "Route",
+  "version": "1.0",
+  "generated_timestamp": "2025-07-18T19:41:55+08:00",
+  "data": {
+    "route": "6C",
+    "bound": "O",
+    "service_type": "1",
+    "orig_en": "KOWLOON CITY FERRY",
+    "orig_tc": "九龍城碼頭",
+    "orig_sc": "九龙城码头",
+    "dest_en": "MEI FOO",
+    "dest_tc": "美孚",
+    "dest_sc": "美孚"
+  }
+}
