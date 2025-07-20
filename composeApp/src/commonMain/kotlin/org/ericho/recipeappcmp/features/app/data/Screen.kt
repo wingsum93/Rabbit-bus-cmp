@@ -14,6 +14,7 @@ import recipeapp_cmp.composeapp.generated.resources.home_unselected
 import recipeapp_cmp.composeapp.generated.resources.profile
 import recipeapp_cmp.composeapp.generated.resources.profile_selected
 import recipeapp_cmp.composeapp.generated.resources.profile_unselected
+import recipeapp_cmp.composeapp.generated.resources.routes
 import recipeapp_cmp.composeapp.generated.resources.search
 import recipeapp_cmp.composeapp.generated.resources.tabs
 
@@ -35,8 +36,8 @@ sealed class Screen(
         unselectedIcon = Res.drawable.home_unselected
     )
 
-    data object Favorites : Screen("favorites",
-        Res.string.favorites,
+    data object Route : Screen("routes",
+        Res.string.routes,
         selectedIcon = Res.drawable.bookmark_selected,
         unselectedIcon = Res.drawable.bookmark_unselected
     )
