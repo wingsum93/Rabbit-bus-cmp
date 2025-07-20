@@ -36,4 +36,16 @@ class BusRouteViewModel(
             }
         }
     }
+
+    fun onAction(action: BusRouteAction) {
+        when (action) {
+            is BusRouteAction.SelectBusRoute -> {
+                // Handle bus route click action
+            }
+
+            else -> {
+                // Handle other actions
+            }
+        }
+    }
 }
